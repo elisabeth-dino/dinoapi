@@ -10,4 +10,4 @@ class DBSettings:
     DB_PASSWORD = os.getenv("RDS_PASSWORD","api")
     #SQLALCHEMY_DATABASE_URI = "{0}://{1}:{2}@{3}:{4}/{5}".format(DB_ENGINE, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME)
 
-    SQLALCHEMY_DATABASE_URI = "postgres://nqwcwvxisqsacq:6081c0b76fbec03b9d61c87f43ce7c65f68977fd786c5aac8348397d55a98704@ec2-54-163-234-88.compute-1.amazonaws.com:5432/d8a5amvsvl46d8"
+    SQLALCHEMY_DATABASE_URI = "postgres://ldkflufqqnfpzi:1c8543600224f62a7bf23799860f681386c3af921df432930f0da6f419297063@ec2-50-17-193-83.compute-1.amazonaws.com:5432/d9qgvsgco4ml2l"

@@ -21,23 +21,24 @@ class User(db.Model):
         self.lastname = lastname
         self.birthday = birthday
         
-    class Task(db.Model):
-        __tablename__ = 'tasks'
-        id_task = db.Column(Integer, primary_key=True)
-        task_name = db.Column(String(150), nullable=False)
-        id_task_status = db.Column(Integer, ForeignKey('task_statuses.id_task_status'))
-        description = db.relationship('TaskStatus', backref=db.backref('task status per task'))
-        id_user = db.Column(Integer, ForeignKey('users.id_user'))
+class Task(db.Model):
+    __tablename__ = 'tasks'
+    id_task = db.Column(Integer, primary_key=True)
+    task_name = db.Column(String(150), nullable=False)
+    id_task_status = db.Column(Integer, ForeignKey('task_statuses.id_task_status'))
+    description = db.relationship('TaskStatus', backref=db.backref('task status per task'))
+    id_user = db.Column(Integer, ForeignKey('users.id_user'))
 
-        def __init__(self, task_name=None, id_task_status=1):
-            self.task_name = task_name
-            self.id_task_status = id_task_status
+    def __init__(self, task_name=None, id_task_status=1, id_user=None ):
+        self.task_name = task_name
+        self.id_task_status = id_task_status
+        self.id_user = id_user
 
-    class TaskStatus(db.Model):
-        __tablename__ = 'task_statuses'
-        id_task_status = db.Column(Integer, primary_key=True)
-        description = db.Column(String(70))
+class TaskStatus(db.Model):
+    __tablename__ = 'task_statuses'
+    id_task_status = db.Column(Integer, primary_key=True)
+    description = db.Column(String(70))
 
-        def __init__(self, id_task_status=None, description=None):
-            self.id_task_status = id_task_status
-            self.description = description
+    def __init__(self, id_task_status=None, description=None):
+        self.id_task_status = id_task_status
+        self.description = description

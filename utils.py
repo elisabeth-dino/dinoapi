@@ -12,10 +12,8 @@ def authorization():
 
     user = User.query.filter_by(username = username).first()
     if (user.username == username and user.password == password):
-        print("user succesfully authenticated")
         return user
     else:
-        print("problem with user authentication")
         return None 
     
    

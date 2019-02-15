@@ -9,7 +9,7 @@ class TaskSchema(Schema):
     task_name = fields.String()
     id_task_status = fields.Integer()
     task_status = fields.Nested(TaskStatusSchema())
-    id_user = filed.Integer()
+    id_user = fields.Integer()
 
 class UserSchema(Schema):
     id_user = fields.Integer()
